@@ -1,3 +1,5 @@
+package chapter.one;
+
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -23,7 +25,7 @@ class Customer {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
         Enumeration rentals = _rentals.elements();
-        String result = "Rental Record for " + getName() + "\n";
+        String result = "chapter.one.Rental Record for " + getName() + "\n";
         while (rentals.hasMoreElements()) {
             double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();

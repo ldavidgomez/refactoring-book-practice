@@ -1,3 +1,5 @@
+package chapter.one;
+
 public class Rental {
     private Movie _movie;
     private int _daysRented;
