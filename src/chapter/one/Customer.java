@@ -36,11 +36,35 @@ class Customer {
             totalAmount += each.getCharge();
         }
         //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) +
+        result += "Amount owed is " + String.valueOf(getTotalCharge()) +
                 "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints)
+        result += "You earned " + String.valueOf(getTotalFrequencyRenterPoints())
                 +
                 " frequent renter points";
+        return result;
+    }
+
+    public double getTotalCharge() {
+        double result = 0;
+        Enumeration rentals = _rentals.elements();
+        while (rentals.hasMoreElements()) {
+            Rental each = (Rental) rentals.nextElement();
+            //determine amounts for each line
+            result += each.getCharge();
+        }
+
+        return result;
+    }
+
+    public int getTotalFrequencyRenterPoints() {
+        int result = 0;
+        Enumeration rentals = _rentals.elements();
+        while (rentals.hasMoreElements()) {
+            Rental each = (Rental) rentals.nextElement();
+            //determine amounts for each line
+            result = each.getFrequentRenterPoints();
+            //show figures for this rental
+        }
         return result;
     }
 }
