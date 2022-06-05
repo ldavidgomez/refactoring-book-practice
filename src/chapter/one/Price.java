@@ -4,6 +4,10 @@ public  abstract class Price {
     abstract int getPriceCode();
 
     abstract double getCharge(int daysRented);
+
+    public int getFrequentRenterPoints(int daysRented) {
+        return 1;
+    }
 }
 class ChildrensPrice extends Price {
     int getPriceCode() {
@@ -16,7 +20,6 @@ class ChildrensPrice extends Price {
             result += (daysRented - 3) * 1.5;
         return result;
     }
-
 }
 class NewReleasePrice extends Price {
     int getPriceCode() {
@@ -25,6 +28,10 @@ class NewReleasePrice extends Price {
 
     public double getCharge(int daysRented){
         return daysRented * 3;
+    }
+
+    public int getFrequentRenterPoints(int daysRented) {
+        return (daysRented > 1) ? 2: 1;
     }
 }
 class RegularPrice extends Price {
@@ -38,5 +45,4 @@ class RegularPrice extends Price {
             result += (daysRented - 2) * 1.5;
         return result;
     }
-
 }
